@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<struts>
+
+	<!-- 指定请求路径后缀 -->
+	<!-- 这个里面指定的扩展名，也就是说默认是action的我们才交给struts2控制器来处理，不是action扩展的我们不管 ，相当于一层过滤器 -->
+	<constant name="struts.action.extension" value="action" />
+
+	<!-- 参数拦截器 -->
+	<!-- 将参数封装到action的属性中 -->
+	<interceptor class="conm.lpf.interceptor.ParametersInterceptor" />
+
+	<!-- 没有写package 简化简化ing -->
+	<!-- 定义一个action -->
+	<action name="Hello" class="conm.lpf.action.HelloAction" method="execute">
+		<result name="success">index.jsp</result>
+	</action>
+	<action name="login" class="conm.lpf.action.LoginAction" method="login">
+	<result name="success">login.jsp</result>
+	</action>
+	<action name="login2" class="conm.lpf.action.LoginAction" method="login2">
+	<result name="success">welcome.jsp</result>
+	<result name="error">error.jsp</result>
+	</action>
+</struts>
